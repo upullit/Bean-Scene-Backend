@@ -1,29 +1,46 @@
-const { MongoClient, ObjectId, Double } = require('mongodb');
+const mongoose = require('mongoose');
+const MenuItem = require('./models/MenuItem'); // Importing menu model
 
-async function MongoStart() {
+// Connecting to Mongodb
+mongoose.connect('mongodb://localhost:27017/restaurantdb', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
 
-    const db = await MongoClient.connect('mongodb://127.0.0.1:27017');
+// Dummy data for the menu
+const menuItems = [
+  {
+    name: "Chicken Salad",
+    price: 12.99, 
+    category: "Lunch",
+    description: "A tasty salad with grilled chicken and fresh greens",
+    ingredients: ["Lettuce", "Cucumber", "Chicken", "Avocado", "Basil"],
+    available: true,
+    isVegan:  false,
+    isVegetarian: false,
+    imageUrl: "fakeImg.com"
+  }
+];
 
-    let dbo = db.db('restaurantdb');
-    let collection = await dbo.collection('menu');
+// Function to seed the database
+const seedDatabase = async () => {
+  try {
+    await MenuItem.deleteMany(); // This deletes any existing documents in the collection
+    console.log('Existing menu items cleared');
+    // Add new dummy data
+    await MenuItem.insertMany(menuItems);
+    console.log('Dummy menu items added successfully');
+    // Fetch and log the added items
+    const findResult = await MenuItem.find({});
+    console.log('Menu items found:', findResult);
 
-    //dummy data
-    await collection.insertMany([
-        {
-            _id: new ObjectId(),
-            name: "Chicken Salad",
-            price: new Double(12.99),
-            category: "Lunch",
-            description: "A tasty salad with grilled chicken and fresh greens",
-            ingredients: ["Lettuce", "Cucumber", "Chicken", "Avocado", "Basil"]
-         }
-    ]);
+    // Close the connection
+    mongoose.connection.close();
+  } catch (error) {
+    console.error('Error seeding the database:', error);
+    mongoose.connection.close();
+  }
+};
 
-        const findResult = await collection.find({}).toArray();
+// Run the seed function
+seedDatabase();
 
-        await db.close();
-    
-        return findResult;
-}
-
-MongoStart().then(console.log).catch(console.error);
