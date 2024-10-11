@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const MenuItem = require('./Database/Menu/models/MenuItem');
+const MenuItem = require('../Database/Menu/models/MenuItem');
 
 //Route for reading menu items
 router.get('/menu', async (req, res) => {
@@ -8,6 +8,7 @@ router.get('/menu', async (req, res) => {
         const menuItems = await MenuItem.find(); // Fetch all menu items from the database
         res.json(menuItems);
     } catch (error) {
+        console.error('Error fetching menu items:', error); // Log the error details
         res.status(500).json({ message: 'Error fetching menu items', error });
     }
 });
