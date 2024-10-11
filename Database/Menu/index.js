@@ -1,5 +1,11 @@
+const express = require('express')
 const mongoose = require('mongoose');
 const MenuItem = require('./models/MenuItem'); // Importing menu model
+
+const app = express();
+const port = 3000;
+
+app.use(express.json());
 
 // Connecting to Mongodb
 mongoose.connect('mongodb://localhost:27017/restaurantdb', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -44,3 +50,50 @@ const seedDatabase = async () => {
 // Run the seed function
 seedDatabase();
 
+
+
+
+// API Routes
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
+
+// Route to get all menu items
+app.get('/api/menuitems', async (req, res) => {
+  try {
+    const items = await MenuItem.find();
+    res.json(items);
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving menu items', error });
+  }
+});
+
+// Route to add a new menu item
+app.post('/api/menuitems', async (req, res) => {
+  try {
+    const newItem = new MenuItem(req.body);
+    await newItem.save();
+    res.status(201).json(newItem);
+  } catch (error) {
+    res.status(400).json({ message: 'Error adding menu item', error });
+  }
+});
+
+// Route to delete a menu item by ID
+app.delete('/api/menuitems/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedItem = await MenuItem.findByIdAndDelete(id);
+    if (!deletedItem) {
+      return res.status(404).json({ message: 'Menu item not found' });
+    }
+    res.json({ message: 'Menu item deleted', deletedItem });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting menu item', error });
+  }
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
