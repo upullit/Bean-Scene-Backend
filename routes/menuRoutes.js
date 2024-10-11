@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const menuItem = require('./Database/Menu/models/MenuItem');
+const MenuItem = require('./Database/Menu/models/MenuItem');
 
 //Route for reading menu items
 router.get('/menu', async (req, res) => {
