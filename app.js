@@ -45,7 +45,7 @@ const menuItems = [
   
   // Function to seed the database
   const seedDatabase = async () => {
-    try {
+
     await MenuItem.deleteMany(); // This deletes any existing documents in the collection
     console.log('Existing menu items cleared');
       // Add new dummy data
@@ -56,11 +56,7 @@ const menuItems = [
       console.log('Menu items found:', findResult);
   
       // Close the connection
-      mongoose.connection.close();
-    } catch (error) {
-      console.error('Error seeding the database: test', error);
-      mongoose.connection.close();
-    }
+
   };
   
   seedDatabase();
