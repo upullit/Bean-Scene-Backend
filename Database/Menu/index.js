@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose');
 const MenuItem = require('./models/MenuItem'); // Importing menu model
+const ticket = require('./models/ticket')  // Importing ticket model
 
 const app = express();
 const port = 3000;
@@ -46,14 +47,10 @@ const seedDatabase = async () => {
     mongoose.connection.close();
   }
 };
-
 // Run the seed function
 seedDatabase();
 
-
-
-
-// API Routes
+// API Routes for menu items
 app.get('/', (req, res) => {
   res.send('API is running');
 });
@@ -96,4 +93,66 @@ app.delete('/api/menuitems/:id', async (req, res) => {
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+});
+
+
+// API routes for menu items.
+
+// Route to create a new ticket order / customer makes an order
+app.post('/api/ticket', async (req, res) => {
+  try {
+    const newOrder = new ticket(req.body)
+    await mewOrder.save()
+    res.status(201).json(newOrder);
+  } catch (error) {
+    res.status(400).json({ message: 'Error creating order', error });
+  }
+});
+
+// Route to look at all ticket orders
+app.get('/api/ticket', async (req, res) => {
+  try {
+    const orders = await ticket.find().populate('items.menuItem')
+    res.json(orders);
+  } catch (error){
+    res.status(500).json({ message: 'Error retrieving orders', error });
+  }
+});
+
+// Route to get all pending ticket orders
+app.get('/api/ticketorders/pending', async (req, res) => {
+  try {
+    const pendingOrders = await ticket.find({ status: 'pending' }).populate('items.menuItem');
+    res.json(pendingOrders);
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving pending orders', error });
+  }
+});
+
+// Route to get a ticket order by ID
+app.get('/api/ticketorders/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const order = await TicketOrder.findById(id).populate('items.menuItem');  // Fetch specific order by ID with menu item details
+    if (!order) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+    res.json(order);
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving the order', error });
+  }
+});
+
+// Route to delete a ticket order by ID
+app.delete('/api/ticketorders/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedOrder = await TicketOrder.findByIdAndDelete(id);  // Deletes the order by ID
+    if (!deletedOrder) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+    res.json({ message: 'Order deleted', deletedOrder });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting the order', error });
+  }
 });
