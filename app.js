@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const menuRoutes = require('./routes/menuRoutes'); // Importing menu routes
 const ticketRoutes = require('./routes/ticketRoutes'); // Importing ticket routes
@@ -10,6 +11,12 @@ const port = 3000;
 mongoose.connect('mongodb://localhost:27017/restaurantdb', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
+
+app.use(cors());
+// specific cors restriction to local host 8081
+// app.use(cors({
+//   origin: 'http://localhost:8081'
+// }));
 
 app.use(express.json());
 
