@@ -1,7 +1,7 @@
 // Seed data file
 const mongoose = require('mongoose');
-const MenuItem = require('../Database/Menu/models/MenuItem'); // Adjust path as needed
-const TicketOrder = require('../Database/Menu/models/ticket'); // Adjust path as needed
+const MenuItem = require('../Menu/models/MenuItem'); // Adjust path as needed
+const TicketOrder = require('../Menu/models/ticket'); // Adjust path as needed
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/restaurantdb', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -39,7 +39,9 @@ const ticketOrdersData = [
     items: [
       { menuItem: null, quantity: 2 } // To be updated with MenuItem IDs after insertion
     ],
-    status: "Pending"
+    status: "Pending",
+    totalPrice: 25.22,
+    CustomerId: new mongoose.Types.ObjectId()
   }
 ];
 
