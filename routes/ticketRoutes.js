@@ -3,7 +3,7 @@ const router = express.Router();
 const TicketOrder = require('../Database/Menu/models/ticket');
 
 //Route to create a new ticket order
-router.post('/ticket', async (req, res) => {
+router.post('/', async (req, res) => {
     const newOrder = new TicketOrder(req.body); // Creates a new ticket order
     try {
         await newOrder.save();
@@ -14,7 +14,7 @@ router.post('/ticket', async (req, res) => {
 });
 
 //Route to get all ticket orders
-router.get('/ticket', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const orders = await TicketOrder.find().populate('items.menuItem'); // Fetch all ticket orders
         res.json(orders);
@@ -25,7 +25,7 @@ router.get('/ticket', async (req, res) => {
 });
 
 //Route to get all completed ticket orders
-router.get('/ticket/completed', async (req, res) => {
+router.get('/completed', async (req, res) => {
     try {
         const pendingOrders = await TicketOrder.find({ status: 'Completed'}).populate('items.menuItem'); // Fetch all ticket orders
         res.json(pendingOrders);
@@ -35,8 +35,8 @@ router.get('/ticket/completed', async (req, res) => {
     }
 });
 
-//Route to get all completed orders
-router.get('/ticket/pending', async (req, res) => {
+//Route to get all pending orders
+router.get('/pending', async (req, res) => {
     try {
         const pendingOrders = await TicketOrder.find({ status: 'Pending'}).populate('items.menuItem'); // Fetch all ticket orders
         res.json(pendingOrders);
@@ -48,7 +48,7 @@ router.get('/ticket/pending', async (req, res) => {
 
 
 //Route to get ticket order by id
-router.get('/ticket/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const order = await TicketOrder.findById(req.params.id);
         if (!order) {
@@ -61,7 +61,7 @@ router.get('/ticket/:id', async (req, res) => {
 });
 
 // Route for deleting ticket order by id
-router.delete('/ticket/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const orderId = req.params.id;
     try {
         const deletedOrder = await TicketOrder.findByIdAndDelete(orderId);

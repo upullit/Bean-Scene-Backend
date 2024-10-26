@@ -3,7 +3,7 @@ const router = express.Router();
 const MenuItem = require('../Database/Menu/models/MenuItem');
 
 //Route for reading menu items
-router.get('/menu', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const menuItems = await MenuItem.find(); // Fetch all menu items from the database
         res.json(menuItems);
@@ -14,7 +14,7 @@ router.get('/menu', async (req, res) => {
 });
 
 // Route for reading a specific menu item by ID
-router.get('/menu/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const item = await MenuItem.findById(req.params.id);
         if (!item) {
@@ -27,7 +27,7 @@ router.get('/menu/:id', async (req, res) => {
 });
 
 // Route for creating menu items
-router.post('/menu', async (req, res) => {
+router.post('/', async (req, res) => {
     const newItem = new MenuItem(req.body); // Create a new MenuItem
     try {
         await newItem.save(); // Save the new item to the database
@@ -38,7 +38,7 @@ router.post('/menu', async (req, res) => {
 });
 
 // Route for updating menu items
-router.put('/menu/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     const itemId = req.params.id;
     try {
         const updatedItem = await MenuItem.findByIdAndUpdate(itemId, req.body, { new: true });
@@ -52,7 +52,7 @@ router.put('/menu/:id', async (req, res) => {
 });
 
 // Route for deleting menu items
-router.delete('/menu/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const itemId = req.params.id;
     try {
         const deletedItem = await MenuItem.findByIdAndDelete(itemId);
