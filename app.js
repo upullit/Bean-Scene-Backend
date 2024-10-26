@@ -22,17 +22,6 @@ app.get('/', (req, res) => {
     res.send('API is running');
 });
 
-// Optional: Uncomment to seed the database with dummy data
-// const seedDatabase = async () => {
-//     const menuItems = [
-//         { name: "Chicken Salad", price: 12.99, category: "Lunch", description: "A tasty salad with grilled chicken and fresh greens", ingredients: ["Lettuce", "Cucumber", "Chicken", "Avocado", "Basil"], available: true, isVegan: false, isVegetarian: false, imageUrl: "fakeImg.com" }
-//     ];
-//     await MenuItem.deleteMany();
-//     console.log('Existing menu items cleared');
-//     await MenuItem.insertMany(menuItems);
-//     console.log('Dummy menu items added successfully');
-// };
-// seedDatabase();
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
