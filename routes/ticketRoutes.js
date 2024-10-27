@@ -7,9 +7,28 @@ router.post('/', async (req, res) => {
     const newOrder = new TicketOrder(req.body); // Creates a new ticket order
     try {
         await newOrder.save();
-        res.status(201).json({ message: 'Ticket order created', data: newOrder})
+        res.status(201).json({ message: 'Ticket order created', data: newOrder });
     } catch (error) {
-        res.status(400).json({ message: 'Error creating ticket order', error})
+        console.error('Error creating ticket order:', error); // Add this for more detail
+        res.status(400).json({ message: 'Error creating ticket order', error: error.message });
+    }
+});
+
+router.put('/:id', async (req, res) => {
+    try {
+        const updatedTicket = await TicketOrder.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+
+        if (!updatedTicket) {
+            return res.status(404).json({ message: 'Ticket not found' });
+        }
+
+        res.json({ message: 'Ticket updated', data: updatedTicket });
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating ticket', error });
     }
 });
 
