@@ -10,6 +10,14 @@ ctrl + click to follow Table of Contents links
 5. [License](#license)
 6. [Notes](#notes)
 
+## Working with backend to Frontend
+Download backend repo - main.
+cd Bean-Scene-Backend
+cd Database
+cd node seed.js
+cd .. x2/3 until nback in bean scene back
+then run node app.js
+keep it running
 
 ## Project Setup
 Clone the repository:
