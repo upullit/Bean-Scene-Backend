@@ -20,7 +20,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/avocado-toast"
+      imageUrl: "https://hips.hearstapps.com/hmg-prod/images/del119923-avocado-toast-web-305-rv-hires-index-6564c205a3402.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=1200:*"
     },
     {
       name: "Pancakes with Maple Syrup",
@@ -31,7 +31,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/pancakes"
+      imageUrl: "./Database/Data/Images/Menu/Breakfast/Pancakes.jpg"
     },
     {
       name: "Breakfast Burrito",
@@ -42,7 +42,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/breakfast-burrito"
+      imageUrl: '/Database/Data/Images/Menu/Breakfast/Full-English.jpg'
     },
     {
       name: "Smoothie Bowl",
@@ -53,7 +53,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/smoothie-bowl"
+      imageUrl: '/Database/Data/Images/Menu/Breakfast/Acai.jpg'
     },
     {
       name: "Omelette",
@@ -64,7 +64,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/omelette"
+      imageUrl: '/Database/Data/Images/Menu/Breakfast/BLT.jpg'
     },
     {
       name: "Bagel with Cream Cheese",
@@ -88,7 +88,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: false,
-      imageUrl: "fakeImg.com/chicken-caesar-wrap"
+      imageUrl: '/Database/Data/Images/Menu/Lunch/Caesar-Salad.jpg'
     },
     {
       name: "Veggie Sandwich",
@@ -99,7 +99,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/veggie-sandwich"
+      imageUrl: '/Database/Data/Images/Menu/Lunch/Veggie-Wrap.jpg'
     },
     {
       name: "Beef Burger",
@@ -110,7 +110,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: false,
-      imageUrl: "fakeImg.com/beef-burger"
+      imageUrl: '/Database/Data/Data/Images/Menu/Lunch/Beef-Burger.jpg'
     },
     {
       name: "Quinoa Salad",
@@ -121,7 +121,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/quinoa-salad"
+      imageUrl: '/Database/Data/Images/Menu/Lunch/Caesar-Salad.jpg'
     },
     {
       name: "Grilled Cheese Sandwich",
@@ -132,7 +132,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/grilled-cheese"
+      imageUrl: '/Database/Data/Images/Menu/Lunch/Grilled-Chicken-Sandwhich.jpg'
     },
     {
       name: "Fish Tacos",
@@ -143,7 +143,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: false,
-      imageUrl: "fakeImg.com/fish-tacos"
+      imageUrl: '/Database/Data/Images/Menu/Lunch/Veggie-Taco.jpg'
     },
   
     // Dinner
