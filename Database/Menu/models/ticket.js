@@ -41,6 +41,10 @@ const ticketSchema = new mongoose.Schema({
     timePlaced: {
         type: Date,
         default: Date.now
+    },
+    tableNumber: {
+        type: String,
+        required: false // Table number required for each ticket
     }
 });
   
