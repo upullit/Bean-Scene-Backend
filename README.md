@@ -2,6 +2,9 @@
 This is the backend API for the Bean Scene food menu ordering system. The backend is built using Node.js, Express, and MongoDB.
 ctrl + click to follow Table of Contents links
 
+Made change to run nodemon for automatic server restarts on changes
+terminal to run 'nodemon app.js' in console
+
 ## Table of Contents
 1. [Project Setup](#project-setup)
 2. [Database Setup](#database-setup)
@@ -14,7 +17,8 @@ ctrl + click to follow Table of Contents links
 Download backend repo - main.
 cd Bean-Scene-Backend
 cd Database
-cd node seed.js
+cd Data
+seed.js
 cd .. x2/3 until nback in bean scene back
 then run node app.js
 keep it running
