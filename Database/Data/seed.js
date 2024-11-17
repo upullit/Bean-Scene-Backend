@@ -359,7 +359,8 @@ const menuItemsData = [
       ],
       status: 'Pending',
       totalPrice: 25.22,
-      CustomerId: new mongoose.Types.ObjectId()
+      CustomerId: new mongoose.Types.ObjectId(),
+      tableNumber: 'A5'
     },
     {
       items: [
@@ -367,7 +368,8 @@ const menuItemsData = [
       ],
       status: 'Pending',
       totalPrice: 10.99,
-      CustomerId: new mongoose.Types.ObjectId()
+      CustomerId: new mongoose.Types.ObjectId(),
+      tableNumber: 'M3'
     },
     {
       items: [
@@ -375,7 +377,8 @@ const menuItemsData = [
       ],
       status: 'Completed',
       totalPrice: 30.00,
-      CustomerId: new mongoose.Types.ObjectId()
+      CustomerId: new mongoose.Types.ObjectId(),
+      tableNumber: 'A3'
     },
     {
       items: [
@@ -384,7 +387,8 @@ const menuItemsData = [
       ],
       status: 'Completed',
       totalPrice: 45.50,
-      CustomerId: new mongoose.Types.ObjectId()
+      CustomerId: new mongoose.Types.ObjectId(),
+      tableNumber: 'M3'
     }
   ];
 
