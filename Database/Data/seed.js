@@ -31,7 +31,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "./Database/Data/Images/Menu/Breakfast/Pancakes.jpg"
+      imageUrl: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Breakfast Burrito",
@@ -42,7 +42,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: '/Database/Data/Images/Menu/Breakfast/Full-English.jpg'
+      imageUrl: "https://images.pexels.com/photos/29333173/pexels-photo-29333173/free-photo-of-delicious-breakfast-burrito-with-salsa-and-sour-cream.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Smoothie Bowl",
@@ -53,7 +53,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: '/Database/Data/Images/Menu/Breakfast/Acai.jpg'
+      imageUrl: "https://images.pexels.com/photos/2173774/pexels-photo-2173774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Omelette",
@@ -64,7 +64,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: '/Database/Data/Images/Menu/Breakfast/BLT.jpg'
+      imageUrl: "https://images.pexels.com/photos/1437268/pexels-photo-1437268.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Bagel with Cream Cheese",
@@ -75,7 +75,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/bagel-cream-cheese"
+      imageUrl: "https://images.pexels.com/photos/3957501/pexels-photo-3957501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
   
     // Lunch
@@ -88,7 +88,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: false,
-      imageUrl: '/Database/Data/Images/Menu/Lunch/Caesar-Salad.jpg'
+      imageUrl: "https://images.pexels.com/photos/17200361/pexels-photo-17200361/free-photo-of-delicious-kebab-with-meat-lettuce-tomato-red-onion-and-sauce-with-french-fries-and-sauce.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Veggie Sandwich",
@@ -99,7 +99,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: '/Database/Data/Images/Menu/Lunch/Veggie-Wrap.jpg'
+      imageUrl: "https://images.pexels.com/photos/5967859/pexels-photo-5967859.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Beef Burger",
@@ -110,7 +110,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: false,
-      imageUrl: '/Database/Data/Data/Images/Menu/Lunch/Beef-Burger.jpg'
+      imageUrl: "https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Quinoa Salad",
@@ -121,7 +121,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: '/Database/Data/Images/Menu/Lunch/Caesar-Salad.jpg'
+      imageUrl: "https://images.pexels.com/photos/5337011/pexels-photo-5337011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Grilled Cheese Sandwich",
@@ -132,7 +132,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: '/Database/Data/Images/Menu/Lunch/Grilled-Chicken-Sandwhich.jpg'
+      imageUrl: "https://images.pexels.com/photos/5840091/pexels-photo-5840091.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Fish Tacos",
@@ -143,7 +143,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: false,
-      imageUrl: '/Database/Data/Images/Menu/Lunch/Veggie-Taco.jpg'
+      imageUrl: "https://images.pexels.com/photos/8448325/pexels-photo-8448325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
   
     // Dinner
@@ -156,7 +156,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: false,
-      imageUrl: "fakeImg.com/steak-veggies"
+      imageUrl: "https://images.pexels.com/photos/18015000/pexels-photo-18015000/free-photo-of-roasted-beef-with-sauce.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Spaghetti Bolognese",
@@ -167,7 +167,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: false,
-      imageUrl: "fakeImg.com/spaghetti-bolognese"
+      imageUrl: "https://images.pexels.com/photos/6287525/pexels-photo-6287525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Mushroom Risotto",
@@ -178,7 +178,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/mushroom-risotto"
+      imageUrl: "https://images.pexels.com/photos/11190139/pexels-photo-11190139.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Chicken Alfredo",
@@ -189,7 +189,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: false,
-      imageUrl: "fakeImg.com/chicken-alfredo"
+      imageUrl: "https://images.pexels.com/photos/4371848/pexels-photo-4371848.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Vegetable Stir-fry",
@@ -200,7 +200,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/vegetable-stir-fry"
+      imageUrl: "https://images.pexels.com/photos/5848508/pexels-photo-5848508.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Lamb Chops",
@@ -211,7 +211,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: false,
-      imageUrl: "fakeImg.com/lamb-chops"
+      imageUrl: "https://images.pexels.com/photos/11795607/pexels-photo-11795607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
   
     // Drinks
@@ -224,7 +224,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/espresso"
+      imageUrl: "https://images.pexels.com/photos/685527/pexels-photo-685527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Latte",
@@ -235,7 +235,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/latte"
+      imageUrl: "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Green Tea",
@@ -246,7 +246,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/green-tea"
+      imageUrl: "https://images.pexels.com/photos/5946668/pexels-photo-5946668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Smoothie",
@@ -257,7 +257,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/smoothie"
+      imageUrl: "https://images.pexels.com/photos/103566/pexels-photo-103566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Iced Coffee",
@@ -268,7 +268,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/iced-coffee"
+      imageUrl: "https://images.pexels.com/photos/1193335/pexels-photo-1193335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Orange Juice",
@@ -279,7 +279,7 @@ const menuItemsData = [
       available: true,
       isVegan: true,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/orange-juice"
+      imageUrl: "https://images.pexels.com/photos/158053/fresh-orange-juice-squeezed-refreshing-citrus-158053.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
   
     // Café/Dessert
@@ -292,7 +292,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/chocolate-cake"
+      imageUrl: "https://images.pexels.com/photos/3740197/pexels-photo-3740197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Cheesecake",
@@ -303,7 +303,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/cheesecake"
+      imageUrl: "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Fruit Tart",
@@ -314,7 +314,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/fruit-tart"
+      imageUrl: "https://images.pexels.com/photos/2035736/pexels-photo-2035736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Ice Cream Sundae",
@@ -325,7 +325,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/ice-cream-sundae"
+      imageUrl: "https://images.pexels.com/photos/17582266/pexels-photo-17582266/free-photo-of-ice-cream-with-cookies-and-sprinkles-and-bananas-on-the-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Apple Pie",
@@ -336,7 +336,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/apple-pie"
+      imageUrl: "https://images.pexels.com/photos/6148194/pexels-photo-6148194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Brownie",
@@ -347,7 +347,7 @@ const menuItemsData = [
       available: true,
       isVegan: false,
       isVegetarian: true,
-      imageUrl: "fakeImg.com/brownie"
+      imageUrl: "https://images.pexels.com/photos/3026804/pexels-photo-3026804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     }
   ];
 
