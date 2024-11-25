@@ -13,7 +13,11 @@ mongoose.connect('mongodb://localhost:27017/restaurantdb', { useNewUrlParser: tr
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
-app.use(cors());
+const corsOptions = {
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Specify allowed HTTP methods
+};
+  
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // API Routes
