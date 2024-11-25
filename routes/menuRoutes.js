@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const PDFDocument = require('pdfkit');
 const MenuItem = require('../Database/Menu/models/MenuItem');
+const Ticket = require('../Database/Menu/models/ticket');
 
 // Route to generate a PDF of all menu items
 router.get('/generatepdf', async (req, res) => {
@@ -106,16 +107,37 @@ router.put('/:id', async (req, res) => {
 // Route for deleting menu items
 router.delete('/:id', async (req, res) => {
     const itemId = req.params.id;
+
     try {
+        // Convert itemId to ObjectId if it's not already
+        const objectId = mongoose.Types.ObjectId(itemId);
+
+        // Check if the menu item is in any tickets
+        const ticketWithItem = await Ticket.findOne({ "items.menuItem": objectId });
+
+        // Debugging: Log ticket check result
+        console.log('Ticket with Item:', ticketWithItem);
+
+        if (ticketWithItem) {
+            return res.status(400).json({
+                message: 'Cannot delete menu item because it is associated with an existing ticket.',
+            });
+        }
+
+        // Proceed with deletion if not found in any tickets
         const deletedItem = await MenuItem.findByIdAndDelete(itemId);
         if (!deletedItem) {
             return res.status(404).json({ message: 'Menu item not found' });
         }
-        res.json({ message: `Menu item ${itemId} deleted` });
+
+        res.json({ message: `Menu item ${itemId} deleted successfully` });
     } catch (error) {
-        res.status(400).json({ message: 'Error deleting menu item', error });
+        console.error('Error deleting menu item:', error);
+        res.status(500).json({ message: 'Error deleting menu item', error });
     }
 });
+
+
 
 
 
