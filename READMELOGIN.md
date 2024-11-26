@@ -30,7 +30,7 @@ This project serves as the backend for the Bean Scene mobile application, provid
 
 1. Clone the repository and navigate to the project folder:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/upullit/Bean-Scene-Backend.git 
    cd Bean-Scene-Backend
    ```
 
