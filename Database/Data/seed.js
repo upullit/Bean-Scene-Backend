@@ -4,7 +4,7 @@ const MenuItem = require('../Menu/models/MenuItem'); // Adjust path as needed
 const TicketOrder = require('../Menu/models/ticket'); // Adjust path as needed
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/restaurantdb', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://finch.thickets.onl:27017/restaurantdb', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected for seeding'))
   .catch(err => console.log('MongoDB connection error:', err));
 
