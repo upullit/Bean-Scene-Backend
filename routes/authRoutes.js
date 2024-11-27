@@ -7,29 +7,25 @@ const jwt = require('jsonwebtoken');
 
 
 //User Registration 
-router.post('/register', async (req, res) => 
-{ const { username, password } = req.body;
-    if (!username || !password) 
-        {
-        return res.status(400).send({ 
-            message: 'Username and password are required' });
-        }
+router.post('/register', async (req, res) => {
+    const { username, password, name, role } = req.body; // Add name
+    if (!username || !password || !name || !role) {
+        return res.status(400).send({ message: 'All fields are required' });
+    }
 
-    try {
-        const salt = crypto.randomBytes(16).toString('hex');
-        const hashedPassword = crypto.scryptSync(password, salt, 32).toString('hex');
+    const salt = crypto.randomBytes(16).toString('hex');
+    const hashedPassword = crypto.scryptSync(password, salt, 32).toString('hex');
 
-        const user = new User({
-            username,
-            pwordhash: hashedPassword,
-            salt,
-        });
+    const user = new User({
+        username,
+        pwordhash: hashedPassword,
+        salt,
+        role,
+        name, 
+    });
 
     await user.save();
     res.status(201).send({ message: 'User registered successfully' });
-    } catch (err) {
-    res.status(500).send({ message: 'Error registering user', error: err.message });
-    }
 });
 
 
@@ -52,8 +48,23 @@ router.post('/login', async (req, res) => {
         return res.status(401).send({ message: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ id: user._id }, 'your_secret_key', { expiresIn: '1h' });
-    res.status(200).send({ message: 'Login successful', token });
+    const token = jwt.sign(
+        {
+            id: user._id,
+            username: user.username,
+            role: user.role,
+            name: user.name, // Include name in the token payload
+        },
+        'your_secret_key',
+        { expiresIn: '1h' }
+    );
+    res.status(200).send({
+        message: 'Login successful',
+        token,
+        username: user.username,
+        role: user.role,
+        name: user.name, // Include name in the response
+    });
     } catch (err) {
         res.status(500).send({ message: 'Error logging in', error: err.message });
     }
@@ -77,6 +88,16 @@ router.post('/auth', (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(403).send({ message: 'Invalid token', error: err.message });
+    }
+});
+
+// Fetch All Users
+router.get('/users', async (req, res) => {
+    try {
+        const users = await User.find({}, '-pwordhash -salt'); // Exclude sensitive fields
+        res.status(200).send(users);
+    } catch (err) {
+        res.status(500).send({ message: 'Error fetching users', error: err.message });
     }
 });
 
