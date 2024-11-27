@@ -39,12 +39,33 @@ This project serves as the backend for the Bean Scene mobile application, provid
    npm install
    ```
 
-3. Ensure MongoDB is running. By default, the application connects to:
+3. Ensure MongoDB is running. To check on WSL:
+  ```
+  sudo systemctl status mongod
+  ```
+  If it is not:
+  ```
+  sudo systemctl start mongod
+  ```
+
+  By default, the application connects to:
    ```
    mongodb://localhost:27017/restaurantdb
    ```
 
 ---
+
+## Seeding the Server - Dev Only
+
+1. Navigate to seed.js file in a new terminal
+  ```
+  cd ./Bean-Scene-Backend/Database/Data
+  ```
+
+2. Seed the database by running seed.js
+  ```
+  node seed.js
+  ```
 
 ## Starting the Server
 
