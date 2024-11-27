@@ -14,6 +14,10 @@ terminal to run 'nodemon app.js' in console
 6. [Notes](#notes)
 
 ## Working with backend to Frontend
+ssh finch@dev.thickets.onl
+enter password
+mongod --dbpath ~/api/mongodb-data
+
 Download backend repo - main.
 cd Bean-Scene-Backend
 cd Database
