@@ -109,22 +109,7 @@ router.delete('/:id', async (req, res) => {
     const itemId = req.params.id;
 
     try {
-        // Convert itemId to ObjectId if it's not already
-        const objectId = mongoose.Types.ObjectId(itemId);
-
-        // Check if the menu item is in any tickets
-        const ticketWithItem = await Ticket.findOne({ "items.menuItem": objectId });
-
-        // Debugging: Log ticket check result
-        console.log('Ticket with Item:', ticketWithItem);
-
-        if (ticketWithItem) {
-            return res.status(400).json({
-                message: 'Cannot delete menu item because it is associated with an existing ticket.',
-            });
-        }
-
-        // Proceed with deletion if not found in any tickets
+        // Proceed with deletion directly without checking for tickets
         const deletedItem = await MenuItem.findByIdAndDelete(itemId);
         if (!deletedItem) {
             return res.status(404).json({ message: 'Menu item not found' });
