@@ -9,13 +9,14 @@ const app = express();
 const port = 3000;
 
 // Connect to MongoDB
-mongoose.connect('mongodb://finch.thickets.onl:27017/restaurantdb', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/restaurantdb', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
 const corsOptions = {
   methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Specify allowed HTTP methods
 };
+
   
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -28,7 +29,7 @@ app.use('/api/auth', authRoutes); // Add auth routes
 // Root route
 app.get('/', (req, res) => {
     res.send('API is running');
-});
+})
 
 
 app.listen(3000, '0.0.0.0', () => {

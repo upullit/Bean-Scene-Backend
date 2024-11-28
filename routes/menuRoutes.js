@@ -104,23 +104,44 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// Route for deleting menu items
+
+// Route delete menu item
 router.delete('/:id', async (req, res) => {
     const itemId = req.params.id;
 
     try {
-        // Proceed with deletion directly without checking for tickets
+        console.log(`Attempting to delete MenuItem ID: ${itemId}`);
+
+        // Step 1: Check for references in the tickets collection
+        const tickets = await Ticket.find({ 'items.menuItem': itemId });
+        if (tickets.length > 0) {
+            console.log(`Found ${tickets.length} tickets referencing MenuItem ID: ${itemId}`);
+
+            // Remove the referenced menu item from all tickets
+            await Ticket.updateMany(
+                { 'items.menuItem': itemId },
+                { $pull: { items: { menuItem: itemId } } } // Remove the menu item from the items array
+            );
+            console.log(`References to MenuItem ID ${itemId} removed from tickets.`);
+        }
+
+        // Step 2: Proceed with deletion
         const deletedItem = await MenuItem.findByIdAndDelete(itemId);
         if (!deletedItem) {
             return res.status(404).json({ message: 'Menu item not found' });
         }
 
+        // Step 3: Return success response
         res.json({ message: `Menu item ${itemId} deleted successfully` });
     } catch (error) {
-        console.error('Error deleting menu item:', error);
-        res.status(500).json({ message: 'Error deleting menu item', error });
+        console.error('Error deleting menu item:', error.message || error);
+        res.status(500).json({
+            message: 'Error deleting menu item',
+            error: error.message || 'Unknown error',
+        });
     }
 });
+
 
 
 
